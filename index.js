@@ -15,7 +15,6 @@ model.User.findAll({}).then((data) => {
 
 async function roboFace() {
  
-
   const browser = await puppeteer.launch({ headless: false, waitUntil: 'load', timeout: 0 });
   const context = browser.defaultBrowserContext();
 
@@ -31,7 +30,6 @@ async function roboFace() {
   await page.click('[type="submit"]');
 
   await page.waitForNavigation();
-
 
   for (const id of ids) {
     try {
@@ -103,7 +101,7 @@ async function roboFace() {
       return;
     });
   }
-}// 
+} 
 
 await browser.close();
 }
