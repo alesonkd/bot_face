@@ -1,0 +1,17 @@
+{
+  "development": {
+      "dialect": "postgres",
+      "port": 5432,
+      "host": "localhost",
+      "schema": "social_media",
+      "database": "postgres",
+      "username": "postgres",
+      "password": "kurt123",
+      "logging": false,
+      "define": {
+        "timestamps": false,
+        "freezeTableName": true
+      }
+
+  }
+}
