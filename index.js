@@ -95,7 +95,9 @@ async function roboFace() {
       const inputMsg = await page.$x('/html/body/div[1]/div/div[1]/div/div[5]/div/div[1]/div[1]/div[1]/div/div/div/div/div/div/div[2]');
       await inputMsg[0].type(obterFrase() + "\n");
 
-      await page.$x('/html/body/div[1]/div/div[1]/div/div[5]/div/div[1]/div[1]/div[1]/div/div/div/div/div/div/div[1]/div/div/div[3]/span[4]/div');
+      const botaoFechar = await page.$x('/html/body/div[1]/div/div[1]/div/div[5]/div/div[1]/div[1]/div[1]/div/div/div/div/div/div/div[1]/div/div/div[3]/span[4]/div');
+      await botaoFechar[0].click();
+      
 
     } catch (e) {
     fs.appendFile("error.log", e + os.EOL, function (err) {
