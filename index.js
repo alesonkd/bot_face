@@ -1,6 +1,7 @@
 const model = require('./utils/modelLoader');
 const puppeteer = require('puppeteer');
 const fs = require('fs');
+const os = require('os');
 require ('dotenv').config();
 
 const ids = [];
@@ -60,12 +61,12 @@ async function roboFace() {
         add = 0;
       }
 
-      model.user.update(
+      model.User.update(
         { add: add },
         { where: { id: id } }
-      ).success(result =>
+      ).then(result =>
         handleResult(result)
-      ).error(err =>
+      ).catch(err =>
         handleError(err)
       )
 
@@ -80,12 +81,12 @@ async function roboFace() {
           continue;
         }
 
-        model.user.update(
+        model.User.update(
           { message: message },
           { where: { id: id } }
-        ).success(result =>
+        ).then(result =>
           handleResult(result)
-        ).error(err =>
+        ).catch(err =>
           handleError(err)
         )
 
@@ -97,7 +98,7 @@ async function roboFace() {
       await page.$x('/html/body/div[1]/div/div[1]/div/div[5]/div/div[1]/div[1]/div[1]/div/div/div/div/div/div/div[1]/div/div/div[3]/span[4]/div');
 
     } catch (e) {
-    fs.appendFile("error.log", e, function (err) {
+    fs.appendFile("error.log", e + os.EOL, function (err) {
       return;
     });
   }
