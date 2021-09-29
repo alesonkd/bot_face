@@ -91,9 +91,12 @@ async function roboFace() {
         )
 
       }
+      await page.waitForTimeout(2000);
 
       const inputMsg = await page.$x('/html/body/div[1]/div/div[1]/div/div[5]/div/div[1]/div[1]/div[1]/div/div/div/div/div/div/div[2]');
       await inputMsg[0].type(obterFrase() + "\n");
+
+      await page.waitForTimeout(3000);
 
       const botaoFechar = await page.$x('/html/body/div[1]/div/div[1]/div/div[5]/div/div[1]/div[1]/div[1]/div/div/div/div/div/div/div[1]/div/div/div[3]/span[4]/div');
       await botaoFechar[0].click();
